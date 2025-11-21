@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Classboard (redesigned)
 
-## Getting Started
+Lightweight, modern redesign of Classboard — a web app for managing class content, schedules, and announcements.
 
-First, run the development server:
+## Table of contents
+- Project overview
+- Key features
+- Tech stack
+- Repository layout
+- Getting started
+- Development
+- Testing & linting
+- Deployment
+- Contribution
+- License
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project overview
+Classboard (redesigned) is a single-page web application that provides teachers and students with a simple interface for managing classes, posting announcements, sharing resources, and viewing schedules. The redesign focuses on accessibility, responsive UI, and a clear developer experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key features
+- Class and user management (create, edit, archive)
+- Announcements and resource sharing
+- Calendar / schedule view
+- Role-based access (teacher / student / admin)
+- Responsive UI with accessible components
+- API-first architecture for extensibility
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tech stack
+- Frontend: React (or preferred framework), TypeScript, CSS-in-JS or Tailwind
+- Backend: Node.js/Express (or preferred), REST or GraphQL API
+- Database: PostgreSQL (or SQLite for local dev)
+- Tooling: Vite / Webpack, ESLint, Prettier, Husky for git hooks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Repository layout
+- /src — frontend source code
+    - /components — reusable UI components
+    - /pages — top-level routes
+    - /services — API calls and data layers
+    - /styles — global styles, tokens
+- /server — backend API (if present)
+    - /controllers
+    - /models
+    - /routes
+- /migrations — DB migrations
+- /scripts — helper scripts
+- README.md — this file
+- .env.example — required environment variables
 
-## Learn More
+Adjust layout to match the actual repo if different.
 
-To learn more about Next.js, take a look at the following resources:
+## Getting started (local)
+1. Clone the repo
+     git clone <repo-url>
+2. Install dependencies
+     cd classboard-redesigned
+     npm install
+     (or yarn)
+3. Copy environment example and edit
+     cp .env.example .env
+     - Configure DATABASE_URL, PORT, and any third-party keys
+4. Start the app (development)
+     npm run dev
+5. Open http://localhost:3000 (or configured port)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If the repo has separate frontend/backend:
+- Start backend: cd server && npm run dev
+- Start frontend: cd src && npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Development
+- Recommended Node version: specify with .nvmrc or engines in package.json
+- Run type checks:
+    npm run typecheck
+- Format code:
+    npm run format
+- Commit hooks:
+    Husky runs linters and tests before commit/push
 
-## Deploy on Vercel
+## Testing & linting
+- Run tests:
+    npm run test
+- Run linters:
+    npm run lint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add or update tests for new features. Aim for unit tests for core logic and integration tests for API endpoints.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+- Build for production:
+    npm run build
+- Serve static build via CDN or Node server
+- Environment variables should be provided by the hosting platform (Vercel, Netlify, Heroku, AWS)
+- Use migration tool to run DB migrations during deployment
+
+## Security & privacy
+- Do not commit secrets. Use .env and secret management provided by your host.
+- Validate and sanitize all user input on the server.
+- Use HTTPS in production and secure cookies / tokens.
+
+## Contributing
+- Open an issue for bug reports or feature requests.
+- Fork, create a feature branch, implement changes, add tests, and open a pull request.
+- Follow the repository's code style, run linters, and keep commits atomic and descriptive.
+
+## Troubleshooting
+- Common issues:
+    - Missing environment variables: check .env against .env.example
+    - DB connection failures: verify DATABASE_URL and run migrations
+    - Port conflicts: change PORT in .env
+
+## License
+MIT — see LICENSE file for details.
+
+## Contact
+For questions or support, open an issue in this repository.
