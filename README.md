@@ -2,7 +2,7 @@
 
 Classora is a modern web application for managing classes, announcements, schedules, and shared resources with advanced prioritization and reminder features for students and class representatives.
 
-![Classora](public\images\Classora_Logo.png)
+![Classora](\public\images\Classora_Logo.png)
 
 ## **Table of contents**
 
