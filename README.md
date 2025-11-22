@@ -25,36 +25,10 @@ This app provides the typical Classboard functionality (class and user managemen
 
 ## Key features
 
-- **Class Management and user enrollment:** Classes would be managed and created by class reps and admins. Users can enroll in classes via unique codes or invitations. Lecturers are also created and assigned to classes by class reps/admins.
-
-- Announcements and resource sharing (files, links, rich text)
-
-- Calendar / schedule view with day/week/month modes
-
-  - Display events (classes, deadlines, exams) with multiple granular views and timezone awareness.
-  - Data: Event entity with start/end, recurrence rules (RRULE), reminders/notifications.
-  - Performance: fetch events by visible date range, cluster overlapping events, lazy-load details.
-  - Gotcha: handle DST and recurring-event edits carefully (single instance vs series).
-
-- Role-based access (student / class rep / teacher / admin)
-
-  - Define roles and granular permissions (RBAC), ideally with a roles table and permission matrix.
-  - Enforce on both client and server: UI hides actions, API validates permissions on every request.
-  - Consider impersonation or audit logging for admin actions.
-  - Gotcha: don’t trust client-side role checks — always validate on server and protect sensitive endpoints.
-
-- Responsive, accessible UI
-
-  - Mobile-first responsive design (flexbox/grid), breakpoints, and progressive enhancement.
-  - Accessibility (a11y): semantic HTML, keyboard navigation, ARIA where necessary, color-contrast, screen-reader announcements.
-  - Testing: run axe or Lighthouse checks and include keyboard-focused manual tests.
-  - Gotcha: complex components (calendars, rich-text editors) often need custom a11y work.
-
-- API-first architecture for extensibility
-  - Design REST/GraphQL APIs as first-class artifacts with versioning, clear contracts, and OpenAPI/GraphQL schema docs.
-  - Separate frontend/state from backend logic; support third-party integrations and webhooks.
-  - Dev ergonomics: mock servers, Postman/Swagger, and automated API tests.
-  - Gotcha: breaking changes — use API versioning and deprecation policies.
+1.  **Class Management and user enrollment:** Classes would be managed and created by class reps and admins. Users can enroll in classes via unique codes or invitations. Lecturers are also created and assigned to classes by class reps/admins.
+2.  **Announcements and resource sharing (files, links, notes):** Class reps would be able to post announcements and share resources with class members. Resources can be organized and tagged for easy searching
+3.  **Responsive, accessible UI:** We are building a clean, responsive UI using modern frontend frameworks (React, NextJS) with accessibility best practices.
+4.  **API-first architecture for extensibility:** Design REST API endpoints to allow third-party integrations, this APIS is designed using the inbuit NextJS API routes and we are testing it using Postman.
 
 ## Advanced features
 
@@ -146,7 +120,7 @@ Add/update tests for new features. Prioritize unit tests for core logic (reminde
 
 - Build for production:
   npm run build
-- Provide environment variables via the hosting platform (Vercel, Netlify, Heroku, AWS)
+- Provide environment variables via the hosting platform (Vercel)
 - Run DB migrations and background job workers (for reminders and digests)
 - Configure email / push providers and secrets in production
 
@@ -154,7 +128,6 @@ Add/update tests for new features. Prioritize unit tests for core logic (reminde
 
 - Do not commit secrets. Use .env and host secret management.
 - Validate and sanitize all user input on the server.
-- Use HTTPS in production and secure cookies / tokens.
 - Rate-limit reminder creation and notification endpoints to prevent abuse.
 
 ## Contributing
@@ -169,7 +142,6 @@ Add/update tests for new features. Prioritize unit tests for core logic (reminde
   - Missing environment variables: check .env against .env.example
   - DB connection failures: verify DATABASE_URL and run migrations
   - Notification failures: verify email/push provider credentials
-  - Port conflicts: change PORT in .env
 
 ## License
 
