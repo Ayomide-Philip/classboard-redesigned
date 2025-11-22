@@ -46,7 +46,7 @@ Add or adjust these tokens in your design system or Tailwind config as needed.
 
 ## **Advanced features**
 
-1. **Important / Starred courses:**Users can mark any course as important (star/bookmark). Class reps may be granted permission to mark courses important for their class.
+1. **Important / Starred courses:** Users can mark any course as important (star/bookmark). Class reps may be granted permission to mark courses important for their class.
 2. **Reminders & notifications:** Create one-off and recurring reminders for exams, assignments, important classes, and resources. Reminders can be scheduled, snoozed, and set with custom priority and expiration. Delivery channels include in-app, email, and optional push notifications (configurable per user). Calendar sync (Google) for reminders and events.
 3. **Dashboard & analytics:** Personalized dashboard showing upcoming reminders, important announcements, and course activity. Analytics on user engagement, announcement views, and resource downloads.
 4. **Search & filtering:** Advanced search across classes, announcements, and resources with filters for importance, date, and type.
@@ -55,15 +55,15 @@ Add or adjust these tokens in your design system or Tailwind config as needed.
 7. **Offline & sync:** Local caching for basic read access and queued actions while offline.
 8. **Import/export:** Import course lists and export schedules/reminders as ICS or CSV.
 
-## Tech stack
+## **Tech stack**
 
 - **Fullstack:** Next.js (React) for frontend and backend API routes
 - **Styling:** Tailwind CSS, CSS Modules
-- Database: MongoDB (or preferred), Mongoose (or preferred ORM)
+- **Database:** MongoDB (or preferred), Mongoose (or preferred ORM)
 - **Authentication:** JWT or OAuth2
 - **Notifications:** Nodemailer for email, Web Push API for push notifications
 
-## Repository layout
+## **Repository layout**
 
 - /src — frontend source code
   - /components — reusable UI components
