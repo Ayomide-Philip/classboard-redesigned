@@ -21,23 +21,13 @@ Classboard (redesigned) is a modern web application for managing classes, announ
 
 ## Project overview
 
-This app provides the typical Classboard functionality (class and user management, announcements, resources, and schedules) and extends it with productivity-focused features: the ability to mark courses as important, let class reps manage importance for their cohort, and a flexible reminders system for tasks, exams, and events.
+This app provides the typical Classboard functionality (class and user management, announcements, resources, and schedules) and extends it with productivity-focused features: the ability to mark courses as important, let class reps manage importance for their course members and also let each members set their own importance, and set reminders/notifications for important dates and course updates.
 
 ## Key features
 
-- Class and user management (create, edit, archive)
-
-  - CRUD for classes and users: create/update class metadata, enroll/unenroll users, soft-delete/archive items to preserve history.
-  - Data model: Class, User, Enrollment, Role. Use UUIDs, timestamps (createdAt/updatedAt/archivedAt).
-  - Backend concerns: validation, transactional updates (enrollments + counts), pagination and search.
-  - Gotcha: archiving vs deleting — prefer soft-delete and prevent orphaned relations.
+- **Class Management and user enrollment:** Classes would be managed and created by class reps and admins. Users can enroll in classes via unique codes or invitations. Lecturers are also created and assigned to classes by class reps/admins.
 
 - Announcements and resource sharing (files, links, rich text)
-
-  - Post announcements scoped to class(es) or global; attach files, URLs, and rich text content.
-  - Storage: use signed uploads to S3 (or equivalent) and store metadata in DB (filename, MIME, size, access policy).
-  - Security: virus scanning for uploads, enforce file-size/type limits, and authorize downloads by role/class.
-  - UX: show read/unread state, optional scheduling, and versioning for edited announcements.
 
 - Calendar / schedule view with day/week/month modes
 
