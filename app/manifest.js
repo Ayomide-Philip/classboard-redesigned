@@ -1,7 +1,7 @@
 export default function manifest() {
   return {
-    name: "Next.js PWA",
-    short_name: "NextPWA",
+    name: "Important Board",
+    short_name: "IBoard",
     description: "A Progressive Web App built with Next.js",
     start_url: "/",
     display: "standalone",
