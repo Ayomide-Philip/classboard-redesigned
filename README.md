@@ -37,33 +37,23 @@ This app provides the typical Classboard functionality (class and user managemen
 
 Add or adjust these tokens in your design system or Tailwind config as needed.
 
-## Key features
+## **Key features**
 
 1.  **Class Management and user enrollment:** Classes would be managed and created by class reps and admins. Users can enroll in classes via unique codes or invitations. Lecturers are also created and assigned to classes by class reps/admins.
 2.  **Announcements and resource sharing (files, links, notes):** Class reps would be able to post announcements and share resources with class members. Resources can be organized and tagged for easy searching
 3.  **Responsive, accessible UI:** We are building a clean, responsive UI using modern frontend frameworks (React, NextJS) with accessibility best practices.
 4.  **API-first architecture for extensibility:** Design REST API endpoints to allow third-party integrations, this APIS is designed using the inbuit NextJS API routes and we are testing it using Postman.
 
-## Advanced features
+## **Advanced features**
 
-- Important / Starred courses
-  - Users can mark any course as important (star/bookmark).
-  - Class reps may be granted permission to mark courses important for their class.
-- Reminders & notifications
-  - Create one-off and recurring reminders for exams, assignments, important classes, and resources.
-  - Reminders can be scheduled, snoozed, and set with custom priority and expiration.
-  - Delivery channels: in-app, email, and optional push notifications (configurable per user).
-  - Calendar sync (ICS export / Google / Outlook) for reminders and events.
-- Subscription & digest
-  - Subscribe to course updates, announcements, or specific resource threads.
-  - Daily/weekly digest emails summarizing important items and upcoming reminders.
-- Permission controls & audit
-  - Fine-grained permissions for class reps (who can post announcements, mark importance, or manage reminders).
-  - Audit logs for administrative actions.
-- Offline & sync
-  - Local caching for basic read access and queued actions while offline.
-- Import/export
-  - Import course lists and export schedules/reminders as ICS or CSV.
+1. **Important / Starred courses:**Users can mark any course as important (star/bookmark). Class reps may be granted permission to mark courses important for their class.
+2. **Reminders & notifications:** Create one-off and recurring reminders for exams, assignments, important classes, and resources. Reminders can be scheduled, snoozed, and set with custom priority and expiration. Delivery channels include in-app, email, and optional push notifications (configurable per user). Calendar sync (Google) for reminders and events.
+3. **Dashboard & analytics:** Personalized dashboard showing upcoming reminders, important announcements, and course activity. Analytics on user engagement, announcement views, and resource downloads.
+4. **Search & filtering:** Advanced search across classes, announcements, and resources with filters for importance, date, and type.
+5. **Collaboration & comments:** Commenting on announcements and resources for class discussions. Threaded replies and mentions.
+6. **Notifications & digests:** Daily/weekly digest emails summarizing important items and upcoming reminders.
+7. **Offline & sync:** Local caching for basic read access and queued actions while offline.
+8. **Import/export:** Import course lists and export schedules/reminders as ICS or CSV.
 
 ## Tech stack
 
