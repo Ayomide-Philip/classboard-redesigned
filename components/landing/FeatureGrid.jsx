@@ -22,7 +22,7 @@ export default function FeatureGrid() {
                         icon={<BookOpen className="w-6 h-6 text-white" />}
                         color="bg-blue-500"
                         title="Manage Less. Learn More."
-                        description="Your rosters, resources, and schedules are automatically organized. No more digging for syllabi or wondering who’s in your group project."
+                        description="Your timetable, resources, reminder and schedules are automatically organized. No more digging for syllabus or wondering who’s in your group project."
                         benefit="Everything you need for every class, one click away."
                     />
                     <FeatureCard
