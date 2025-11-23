@@ -1,134 +1,244 @@
-# **Classora**
+# Classora Redesign – Expanded Student Ecosystem
 
-Classora is a modern web application for managing classes, announcements, schedules, and shared resources with advanced prioritization and reminder features for students and class representatives.
+## 1. Executive Summary and Strategic Objective
 
-![Classora](\public\images\Classora_Logo.png)
+Objective  
+Make Classora a full student ecosystem. Core pillars are class management, community engagement, real‑time chat, searchable venue mapping and advanced reminders. The redesign modernizes UI and UX, introduces contribution features such as comments and chat, and surfaces people and places through search and map filters.
 
-## **Table of contents**
+Success metrics  
+• Increase active user contributions per class.  
+• Reduce time to find venues or users.  
+• Full UI coverage using a consistent component library and automated tests.
 
-- Project overview
-- Key features
-- Advanced features
-- Tech stack
-- Getting started
-- Development
-- Testing & linting
-- Deployment
-- Security & privacy
-- Contributing
-- Troubleshooting
-- License
-- Contact
+Constraints  
+Next.js frontend, MongoDB backend, DaisyUI, JWT/OAuth. Baseline features referenced from original documentation.
 
-## **Project overview**
+---
 
-This app provides the typical Classboard functionality (class and user management, announcements, resources, and schedules) and extends it with productivity-focused features: the ability to mark courses as important, let class reps manage importance for their course members and also let each members set their own importance, and set reminders/notifications for important dates and course updates.
+## 2. High‑Level Product Pillars
 
-## **Colors Used**
+1. Landing page and acquisition funnel.  
+2. Dashboard with prioritized items.  
+3. Classes and roster management.  
+4. Announcements with comments.  
+5. Real‑time chat.  
+6. Map and venue search.  
+7. Reminders and calendar sync.  
+8. Analytics and admin tools.  
+9. Offline support and background jobs.
 
-- `public/mockup-classboard.svg`, `public/mockup-classboard-dark.svg`, and `public/mockup-classboard-mobile.svg` use the following palette used across mockups:
-- **Primary gradient:** `#6C5CE7` → `#00B894` (main accent gradient used for headers/marks)
-- **Light background:** `#F5F7FF` (page background)
-- **Card / surface:** `#FFFFFF` (card backgrounds)
-- **Subtle stroke / panel border:** `#EEF3FB`
-- **Muted text:** `#6B7280`
-- **Accent variants:** `#FFD166`, `#74C0FC`, `#9B59B6`, `#00B894`, `#FF7675`, `#74D680` (used for course chips and icons)
-- **Dark-mode background:** `#071023` / `#0B1422`
-- **Dark-mode accent gradient:** `#7C5CFF` → `#00D389`
+---
 
-Add or adjust these tokens in your design system or Tailwind config as needed.
+## 3. Design System and Components
 
-## **Key features**
+Design tokens  
+Gradient and colors from existing palette. Add semantic colors for system states.
 
-1.  **Class Management and user enrollment:** Classes would be managed and created by class reps and admins. Users can enroll in classes via unique codes or invitations. Lecturers are also created and assigned to classes by class reps/admins.
-2.  **Announcements and resource sharing (files, links, notes):** Class reps would be able to post announcements and share resources with class members. Resources can be organized and tagged for easy searching
-3.  **Responsive, accessible UI:** We are building a clean, responsive UI using modern frontend frameworks (React, NextJS) with accessibility best practices.
-4.  **API-first architecture for extensibility:** Design REST API endpoints to allow third-party integrations, this APIS is designed using the inbuit NextJS API routes and we are testing it using Postman.
+Typography & spacing  
+Define Tailwind scale for typography, spacing, radii.
 
-## **Advanced features**
+DaisyUI component mapping  
+Hero, navbar, card, list, avatar, modal, tabs, tables, toasts, chat bubble, map container.
 
-1. **Important / Starred courses:** Users can mark any course as important (star/bookmark). Class reps may be granted permission to mark courses important for their class.
-2. **Reminders & notifications:** Create one-off and recurring reminders for exams, assignments, important classes, and resources. Reminders can be scheduled, snoozed, and set with custom priority and expiration. Delivery channels include in-app, email, and optional push notifications (configurable per user). Calendar sync (Google) for reminders and events.
-3. **Dashboard & analytics:** Personalized dashboard showing upcoming reminders, important announcements, and course activity. Analytics on user engagement, announcement views, and resource downloads.
-4. **Search & filtering:** Advanced search across classes, announcements, and resources with filters for importance, date, and type. Also in spp google Map access to search for venue location for classes.
-5. **Collaboration & comments:** Commenting on announcements and resources for class discussions. Threaded replies and mentions.
-6. **Notifications & digests:** Daily/weekly digest emails summarizing important items and upcoming reminders.
-7. **Offline & sync:** Local caching for basic read access and queued actions while offline.
-8. **Import/export:** Import course lists and export schedules/reminders as CSV.
-9. **Chat System:** A minimalistic chat system for proper communication with course mates.
+Deliverables  
+• Figma components  
+• Tailwind + DaisyUI tokens  
+• Storybook components
 
-## **Tech stack**
+---
 
-- **Fullstack:** Next.js (React) for frontend and backend API routes
-- **Styling:** Tailwind CSS, CSS Modules
-- **Database:** MongoDB (or preferred), Mongoose (or preferred ORM)
-- **Authentication:** JWT or OAuth2
-- **Notifications:** Nodemailer for email, Web Push API for push notifications
+## 4. Page‑by‑Page Todo List
 
-## Getting started (local)
+### Landing Page
+• Hero section with CTA buttons  
+• Feature sections: classes, community, chat, map, reminders  
+• Footer and supporting material  
+API: Public endpoints  
+Acceptance: Fast load, conversion‑optimized layout
 
-1. Clone the repo
-   git clone <repo-url>
-2. Install dependencies
-   cd classboard-redesigned
-   npm install
-3. Copy environment example and edit
-   cp .env.example .env
-   - Configure DATABASE_URL, PORT, email provider, and push credentials if used
-4. Start the app (development)
-   npm run dev
-5. Open http://localhost:3000 (or configured port)
+### Auth & Onboarding
+• Sign up / Sign in  
+• Social login  
+• Onboarding role selection  
+API: /auth/register, /auth/login  
+Acceptance: User lands in setup flow
 
-## Development
+### Dashboard
+• Unified prioritized feed  
+• Customizable widgets  
+API: /dashboard  
+Acceptance: Editable layout
 
-- Recommended Node version: specify with .nvmrc or engines in package.json
-- Run type checks:
-  npm run typecheck
-- Format code:
-  npm run format
-- Commit hooks:
-  Husky runs linters and tests before commit/push
+### Classes Page
+• Class overview, announcements, resources, people, events, chat  
+• Roster with search  
+API: /classes/:id  
+Acceptance: Roles and roster management
 
-## Testing & linting
+### Announcements & Comments
+• Post announcements  
+• Comment threads, mentions, reactions  
+API: /classes/:id/announcements  
+Real‑time: Live updates  
+Acceptance: Comments appear instantly
 
-- Run tests:
-  npm run test
-- Run linters:
-  npm run lint
+### Chat System
+• Class rooms, private chats, channels  
+• Typing indicators, read receipts  
+API: WebSocket + REST history  
+Acceptance: Reliable message delivery
 
-Add/update tests for new features. Prioritize unit tests for core logic (reminders, permissions) and integration tests for API endpoints.
+### User Directory
+• Searchable directory with filters  
+API: /users  
+Acceptance: Quick search response
 
-## Deployment
+### Map & Venue Search
+• Map view with filters  
+• Directions and event creation  
+API: /venues  
+Acceptance: Interactive filtering and pins
 
-- Build for production:
-  npm run build
-- Provide environment variables via the hosting platform (Vercel)
-- Run DB migrations and background job workers (for reminders and digests)
-- Configure email / push providers and secrets in production
+### Global Search
+• Unified search bar  
+API: /search  
+Acceptance: Instant suggestions
 
-## Security & privacy
+### Reminders & Calendar Sync
+• Recurring reminders  
+• Snooze, expiration  
+API: /reminders  
+Workers: scheduled tasks  
+Acceptance: Reliable delivery
 
-- Do not commit secrets. Use .env and host secret management.
-- Validate and sanitize all user input on the server.
-- Rate-limit reminder creation and notification endpoints to prevent abuse.
+### Notifications Center
+• Inbox view  
+• Digest configuration  
+API: /notifications  
+Acceptance: Real‑time + email digest
 
-## Contributing
+### Resources & File Management
+• File uploads, tagging, versioning  
+Acceptance: Previews and logging
 
-- Open an issue for bugs or feature requests.
-- Fork, create a feature branch, implement changes, add tests, and open a pull request.
-- Follow the repository's code style, run linters, and keep commits atomic and descriptive.
+### Admin & Analytics
+• System metrics, moderation  
+Acceptance: Export capabilities
 
-## Troubleshooting
+---
 
-- Common issues:
-  - Missing environment variables: check .env against .env.example
-  - DB connection failures: verify DATABASE_URL and run migrations
-  - Notification failures: verify email/push provider credentials
+## 5. Data Models
 
-## License
+User  
+Class  
+Announcement  
+Comment  
+Message  
+Venue  
+Reminder  
+Notification  
+Includes indexes for text search and geo search.
 
-MIT — see LICENSE file for details.
+---
 
-## Contact
+## 6. API Surface
 
-For questions or support, open an issue in this repository.
+Auth  
+Classes  
+Announcements  
+Chat  
+Search  
+Venues  
+Reminders  
+Notifications  
+Admin/Analytics  
+
+OpenAPI recommended for full schema definitions.
+
+---
+
+## 7. Real‑Time Architecture
+
+• WebSocket for chat and comments  
+• Redis Pub/Sub  
+• Background job queue for reminders and digests  
+• MongoDB primary, Redis cache/presence
+
+---
+
+## 8. UX, Accessibility and Edge Cases
+
+• Loading states and skeletons  
+• Comment depth handling  
+• Offline chat retries  
+• AA contrast  
+• Mobile‑first responsiveness
+
+---
+
+## 9. DaisyUI Development Checklist
+
+• Buttons  
+• Inputs  
+• Modals  
+• Cards  
+• Avatars  
+• Toasts  
+• Tabs  
+• Tables  
+• Chat bubbles  
+• Map container
+
+---
+
+## 10. QA, Testing, Deployment
+
+• Unit, integration, E2E tests  
+• CI pipeline for lint, tests, Storybook  
+• Vercel deploy for web  
+• Workers for background jobs  
+• Sentry monitoring
+
+---
+
+## 11. Collaboration Workflow
+
+Repo structure  
+Branching strategy  
+Code review checklist  
+Design → Dev → QA workflow  
+Sprint planning guidelines
+
+---
+
+## 12. Timeline (Suggested)
+
+Sprint 0 – Components + Auth  
+Sprint 1 – Landing + Dashboard  
+Sprint 2 – Classes + Announcements  
+Sprint 3 – Comments (real‑time)  
+Sprint 4 – Chat  
+Sprint 5 – Map  
+Sprint 6 – Reminders  
+Sprint 7 – Admin + Polishing
+
+---
+
+## 13. Security Checklist
+
+• Input validation  
+• RBAC permissions  
+• Token expiry  
+• File security  
+• Data retention policy
+
+---
+
+## 14. Optional Deliverables
+
+• Page flow diagrams  
+• Component spec sheets  
+• OpenAPI documentation  
+• Storybook foundations  
+• UX diagrams
+
