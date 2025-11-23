@@ -6,7 +6,7 @@ import { Moon, Sun } from "lucide-react";
 
 export default function Toggle() {
   const [mounted, setMounted] = useState(false);
-  const { setTheme, theme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   console.log(resolvedTheme);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ export default function Toggle() {
         onClick={() => {
           resolvedTheme === "dark" ? setTheme("light") : setTheme("dark");
         }}
+        className="cursor-pointer"
       >
         {resolvedTheme === "dark" ? (
           <Sun className="w-6 h-6" />

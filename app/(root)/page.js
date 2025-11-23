@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32">
+      <section id="joinus" className="py-20 md:py-32">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="rounded-3xl bg-linear-to-br from-indigo-600 to-purple-700 p-8 md:p-16 text-center text-white overflow-hidden relative">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
