@@ -8,7 +8,6 @@ import MobileShowcase from "@/components/landing/MobileShowcase";
 import Security from "@/components/landing/Security";
 import FAQ from "@/components/landing/FAQ";
 import CTA from "@/components/landing/CTA";
-import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
       <Security />
       <FAQ />
       <CTA />
-      <Footer />
     </div>
   );
 }
