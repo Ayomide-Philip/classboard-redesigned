@@ -1,4 +1,4 @@
-# Classora – Teach more, Manage less! 
+# Classora – Teach more, Manage less!
 
 ## 1. Executive Summary and Strategic Objective
 
@@ -17,14 +17,14 @@ Next.js frontend, MongoDB backend, DaisyUI, JWT/OAuth. Baseline features referen
 
 ## 2. High‑Level Product Pillars
 
-1. Landing page and acquisition funnel.  
-2. Dashboard with prioritized items.  
-3. Classes and roster management.  
-4. Announcements with comments.  
-5. Real‑time chat.  
-6. Map and venue search.  
-7. Reminders and calendar sync.  
-8. Analytics and admin tools.  
+1. Landing page and acquisition funnel.
+2. Dashboard with prioritized items.
+3. Classes and roster management.
+4. Announcements with comments.
+5. Real‑time chat.
+6. Map and venue search.
+7. Reminders and calendar sync.
+8. Analytics and admin tools.
 9. Offline support and background jobs.
 
 ---
@@ -50,6 +50,7 @@ Deliverables
 ## 4. Page‑by‑Page Todo List
 
 ### Landing Page
+
 • Hero section with CTA buttons  
 • Feature sections: classes, community, chat, map, reminders  
 • Footer and supporting material  
@@ -57,6 +58,7 @@ API: Public endpoints
 Acceptance: Fast load, conversion‑optimized layout
 
 ### Auth & Onboarding
+
 • Sign up / Sign in  
 • Social login  
 • Onboarding role selection  
@@ -64,18 +66,21 @@ API: /auth/register, /auth/login
 Acceptance: User lands in setup flow
 
 ### Dashboard
+
 • Unified prioritized feed  
 • Customizable widgets  
 API: /dashboard  
 Acceptance: Editable layout
 
 ### Classes Page
+
 • Class overview, announcements, resources, people, events, chat  
 • Roster with search  
 API: /classes/:id  
 Acceptance: Roles and roster management
 
 ### Announcements & Comments
+
 • Post announcements  
 • Comment threads, mentions, reactions  
 API: /classes/:id/announcements  
@@ -83,28 +88,33 @@ Real‑time: Live updates
 Acceptance: Comments appear instantly
 
 ### Chat System
+
 • Class rooms, private chats, channels  
 • Typing indicators, read receipts  
 API: WebSocket + REST history  
 Acceptance: Reliable message delivery
 
 ### User Directory
+
 • Searchable directory with filters  
 API: /users  
 Acceptance: Quick search response
 
 ### Map & Venue Search
+
 • Map view with filters  
 • Directions and event creation  
 API: /venues  
 Acceptance: Interactive filtering and pins
 
 ### Global Search
+
 • Unified search bar  
 API: /search  
 Acceptance: Instant suggestions
 
 ### Reminders & Calendar Sync
+
 • Recurring reminders  
 • Snooze, expiration  
 API: /reminders  
@@ -112,16 +122,19 @@ Workers: scheduled tasks
 Acceptance: Reliable delivery
 
 ### Notifications Center
+
 • Inbox view  
 • Digest configuration  
 API: /notifications  
 Acceptance: Real‑time + email digest
 
 ### Resources & File Management
+
 • File uploads, tagging, versioning  
 Acceptance: Previews and logging
 
 ### Admin & Analytics
+
 • System metrics, moderation  
 Acceptance: Export capabilities
 
@@ -151,7 +164,7 @@ Search
 Venues  
 Reminders  
 Notifications  
-Admin/Analytics  
+Admin/Analytics
 
 OpenAPI recommended for full schema definitions.
 
@@ -241,4 +254,3 @@ Sprint 7 – Admin + Polishing
 • OpenAPI documentation  
 • Storybook foundations  
 • UX diagrams
-
