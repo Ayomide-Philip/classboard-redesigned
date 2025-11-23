@@ -94,17 +94,11 @@ export default function manifest() {
     ],
     screenshots: [
       {
-        src: "/images/Classora_Logo_withbg.png",
+        src: "/images/desktop-screenshot.png",
         sizes: "1400x900",
         type: "image/png",
         label: "Desktop mockup",
         form_factor: "wide",
-      },
-      {
-        src: "/images/Classora_Logo_withbg.png",
-        sizes: "360x800",
-        type: "image/png",
-        label: "Mobile mockup",
       },
     ],
   };
