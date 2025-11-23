@@ -66,7 +66,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-32 px-4">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-32 px-4 bg-[url('/images/hero-bg.jpg')]">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col items-center text-center gap-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/50 border border-border text-xs font-medium text-secondary-foreground animate-fade-in">
