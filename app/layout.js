@@ -1,4 +1,4 @@
-  import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemesProvider from "@/components/themesprovider";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
@@ -29,9 +29,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-black dark:text-white`}
       >
         <ThemesProvider>
-          <PWAInstallPrompt />
+          {/* <PWAInstallPrompt /> */}
           {children}
-          </ThemesProvider>
+        </ThemesProvider>
       </body>
     </html>
   );
