@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemesProvider from "@/components/themesprovider";
-import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +27,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-black dark:text-white`}
       >
-        <ThemesProvider>
-          {/* <PWAInstallPrompt /> */}
-          {children}
-        </ThemesProvider>
+        <ThemesProvider>{children}</ThemesProvider>
       </body>
     </html>
   );
