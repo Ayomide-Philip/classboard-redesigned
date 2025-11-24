@@ -11,8 +11,6 @@ export default function PWAInstallPrompt() {
 
   useEffect(() => {
     const handler = (e) => {
-      // Prevent the mini-infobar from appearing on mobile
-      e.preventDefault();
 
       // Check if user dismissed the prompt recently
       const dismissedAt = localStorage.getItem("pwa_prompt_dismissed");
@@ -73,7 +71,7 @@ export default function PWAInstallPrompt() {
           <div className="text-3xl">📱</div>
           <div className="flex-1">
             <h3 className="font-bold text-base-content mb-1">
-              Install D2C App
+              Install Classora App
             </h3>
             <p className="text-sm text-base-content/70 mb-3">
               Install our app for offline access and a better experience!
