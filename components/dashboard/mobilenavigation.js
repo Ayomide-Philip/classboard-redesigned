@@ -2,9 +2,13 @@
 import { FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
 import { sidebarLinks } from "./navigationLinks";
-
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 export default function MobileNavigation() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const pathname = usePathname();
+  console.log(pathname);
+
   return (
     <div className="flex items-center justify-between border border-slate-200 bg-white px-4 py-3 shadow-md dark:border-slate-800 dark:bg-slate-900/80 lg:hidden">
       <div className="flex items-center gap-3">
@@ -62,19 +66,20 @@ export default function MobileNavigation() {
               </button>
             </div>
             <nav className="px-4 py-4 space-y-2">
-              {sidebarLinks.map(({ icon: Icon, label, active }) => (
-                <button
+              {sidebarLinks.map(({ icon: Icon, label, url }) => (
+                <Link
                   key={label}
                   className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
-                    active
+                    pathname == url
                       ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
                       : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
                   }`}
                   onClick={() => setMobileNavOpen(false)}
+                  href={url}
                 >
                   <Icon />
                   <span>{label}</span>
-                </button>
+                </Link>
               ))}
             </nav>
           </div>
