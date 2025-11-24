@@ -10,7 +10,7 @@ export default function DesktopSidebar() {
   console.log(pathname);
   return (
     <aside
-      className={`hidden lg:flex pt-3 border border-slate-200 bg-white text-slate-900 shadow-xl transition-[width] duration-300 dark:border-slate-800/80 dark:bg-slate-900/80 dark:text-slate-100 dark:backdrop-blur ${
+      className={`hidden lg:flex min-h-screen pt-3 border border-slate-200 bg-white text-slate-900 shadow-xl transition-[width] duration-300 dark:border-slate-800/80 dark:bg-slate-900/80 dark:text-slate-100 dark:backdrop-blur ${
         collapsed ? "w-[90px]" : "w-[300px]"
       }`}
     >
@@ -41,7 +41,7 @@ export default function DesktopSidebar() {
         </div>
 
         <nav className="mt-10 flex-1 space-y-2 ">
-          {sidebarLinks.map(({ icon: Icon, label, active, url }) => (
+          {sidebarLinks.map(({ icon: Icon, label, url }) => (
             <Link
               key={label}
               className={`group flex w-full items-center cursor-pointer ${
