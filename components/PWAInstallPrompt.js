@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-const COOLDOWN_PERIOD = 24 * 60 * 60 * 1000; // 24 hours
+const COOLDOWN_PERIOD = 4; // 24 hours
 
 export default function PWAInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
