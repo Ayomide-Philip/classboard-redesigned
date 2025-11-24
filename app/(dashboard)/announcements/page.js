@@ -18,8 +18,8 @@ export default function Page() {
     },
   ];
   return (
-    <div className="px-3">
-      <h1 className="text-center md:text-start text-2xl font-semibold text-slate-900 dark:text-slate-100">
+    <div className="px-3 mb-10">
+      <h1 className="mt-3 md:mt-0 text-center md:text-start text-2xl font-semibold text-slate-900 dark:text-slate-100">
         Annoucement
       </h1>
       <p className=" text-sm">
@@ -46,15 +46,12 @@ export default function Page() {
               {course.nextEvent}
             </p>
             <div className="flex justify-end text-sm mt-3">
-              <span>
-                {new Date().toLocaleDateString("en-Us", {
-                  hour: "2-digit",
-                  minute: "numeric",
-                  day: "2-digit",
-                  month: "short",
-                  year: "numeric",
-                })}
-              </span>
+              {new Date().getHours()}:{new Date().getMinutes()} .{" "}
+              {new Date().toLocaleDateString("en-Us", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}
             </div>
           </div>
         ))}
