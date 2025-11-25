@@ -43,8 +43,7 @@ export default function Home() {
       <Ecosystem />
       <Personas />
       <MobileShowcase />
-      <Security />
-      <FAQ />
+      {/* <Security /> */}
       <section
         id="testimonials"
         className="py-20 md:py-32 bg-secondary/20 border-y border-border/50"
@@ -73,6 +72,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <FAQ />
       <CTA />
     </div>
   );

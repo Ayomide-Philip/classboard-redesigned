@@ -1,13 +1,30 @@
+"use client";
 import { BsGoogle } from "react-icons/bs";
-
+import { useState } from "react";
+import { Eye, EyeClosed } from "lucide-react";
+import RegisterAction from "./action";
+import Form from "next/form";
 export default function Page() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+
+  //   console.log(name, email, password, confirmPassword);
+  //   await RegisterAction({ name, email, password, confirmPassword });
+  // }
   return (
     <div className="p-10 sm:p-16 flex flex-col justify-center bg-white dark:bg-gray-800">
       <h2 className="text-3xl font-extrabold text-gray-800 dark:text-gray-100 mb-8 text-center">
         Sign Up
       </h2>
 
-      <form className="space-y-6">
+      <Form className="space-y-6" action={RegisterAction}>
         <div className="relative">
           <input
             type="text"
@@ -16,6 +33,9 @@ export default function Page() {
             required
             className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Full name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
           />
         </div>
 
@@ -27,33 +47,62 @@ export default function Page() {
             required
             className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Email address"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
         </div>
 
         <div className="relative">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             name="password"
             required
             className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
+          <div
+            onClick={() => {
+              setShowPassword(!showPassword);
+            }}
+            className="absolute right-0 top-3.5 text-gray-500 dark:text-gray-300 cursor-pointer"
+          >
+            {showPassword ? <EyeClosed /> : <Eye />}
+          </div>
         </div>
 
         <div className="relative">
           <input
-            type="password"
+            type={showConfirmPassword ? "text" : "password"}
             id="confirmPassword"
             name="confirmPassword"
-            required
             className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Confirm password"
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+            }}
+            required
           />
+          <div
+            onClick={() => {
+              setShowConfirmPassword(!showConfirmPassword);
+            }}
+            className="absolute right-0 top-3.5 text-gray-500 dark:text-gray-300 cursor-pointer"
+          >
+            {showConfirmPassword ? <EyeClosed /> : <Eye />}
+          </div>
         </div>
-        <div className="flex items-center justify-between text-sm">
+        <div className="flex md:flex-row flex-col items-center justify-between text-sm">
           <label className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-            <input type="checkbox" className="accent-indigo-600" />
+            <input
+              type="checkbox"
+              className="accent-indigo-600"
+              defaultChecked
+            />
             Remember me
           </label>
           <a
@@ -65,11 +114,11 @@ export default function Page() {
         </div>
         <button
           type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition duration-300 shadow-lg"
+          className="w-full cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition duration-300 shadow-lg"
         >
           Create Account
         </button>
-      </form>
+      </Form>
 
       <div className="flex items-center gap-4 my-6">
         <hr className="grow border-gray-300 dark:border-gray-700" />
