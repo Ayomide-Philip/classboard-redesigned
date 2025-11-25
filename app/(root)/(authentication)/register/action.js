@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import { __NEXT_PRIVATE_ORIGIN } from "@/libs/config";
 
 export default async function RegisterAction(formData) {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -45,6 +46,18 @@ export default async function RegisterAction(formData) {
     return toast.error("Passwords do not match");
 
   try {
+    const request = await fetch(`${__NEXT_PRIVATE_ORIGIN}/api/auth/register`, {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        email,
+        username,
+        password,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
     console.error("Registration error:", error);
     toast.error("An error occurred during registration. Please try again.");

@@ -7,7 +7,7 @@ import Form from "next/form";
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
+
   return (
     <div className="p-10 sm:p-16 flex flex-col justify-center bg-white dark:bg-gray-800">
       <h2 className="text-3xl font-extrabold text-gray-800 dark:text-gray-100 mb-8 text-center">
