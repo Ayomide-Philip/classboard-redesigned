@@ -1,17 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle2,
-  Shield,
-  Sparkles,
-  Users,
-} from "lucide-react";
-import CreateStepOne from "@/components/dashboard/overview/create/stepone";
-import CreateStepTwo from "@/components/dashboard/overview/create/steptwo";
-import LastStep from "@/components/dashboard/overview/create/laststep";
+import { CheckCircle2, Shield, Sparkles, Users } from "lucide-react";
+import CreateForm from "@/components/dashboard/overview/create/form";
 
 const steps = [
   {
@@ -34,45 +25,6 @@ const steps = [
 
 export default function Page() {
   const [activeStep, setActiveStep] = useState(0);
-  const [formData, setFormData] = useState({
-    name: "",
-    tagline: "",
-    description: "",
-    joinMode: "code",
-    seatLimit: "",
-    visibility: "private",
-    brandColor: "#22d3ee",
-    allowComments: true,
-    enableAnnouncements: true,
-    modules: ["Announcements", "Assignments"],
-  });
-
-  const isFirstStep = activeStep === 0;
-  const isLastStep = activeStep === steps.length - 1;
-
-  const handleFieldChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleToggleModule = (module) => {
-    setFormData((prev) => {
-      const exists = prev.modules.includes(module);
-      return {
-        ...prev,
-        modules: exists
-          ? prev.modules.filter((item) => item !== module)
-          : [...prev.modules, module],
-      };
-    });
-  };
-
-  const goNext = () => {
-    setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
-  };
-
-  const goBack = () => {
-    setActiveStep((prev) => Math.max(prev - 1, 0));
-  };
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden">
@@ -150,49 +102,11 @@ export default function Page() {
           </div>
         </nav>
 
-        <form
-          className="relative flex flex-1 flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-900/8 dark:border-white/10 dark:bg-white/5"
-          onSubmit={(event) => event.preventDefault()}
-        >
-          {activeStep === 0 && <CreateStepOne />}
-
-          {activeStep === 1 && <CreateStepTwo />}
-
-          {activeStep === 2 && <LastStep formData={formData} />}
-
-          <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 dark:border-white/10 md:flex-row md:items-center md:justify-between">
-            <button
-              type="button"
-              onClick={goBack}
-              disabled={isFirstStep}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-slate-200 px-6 text-sm font-semibold text-slate-600 transition hover:border-slate-300 hover:bg-slate-100 disabled:cursor-not-allowed disabled:border-slate-100 disabled:text-slate-400 dark:border-white/10 dark:text-white/70 dark:hover:border-white/20 dark:hover:bg-white/5 dark:disabled:border-white/5 dark:disabled:text-white/30"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back
-            </button>
-
-            <div className="flex flex-1 items-center justify-end gap-3">
-              {!isLastStep ? (
-                <button
-                  type="button"
-                  onClick={goNext}
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1] px-8 text-sm font-semibold text-white shadow-md shadow-[#22d3ee]/10 transition hover:-translate-y-px hover:shadow-lg hover:shadow-[#22d3ee]/35 disabled:cursor-not-allowed disabled:opacity-40"
-                >
-                  Next
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1] px-8 text-sm font-semibold text-white shadow-md shadow-[#22d3ee]/10 transition hover:-translate-y-px hover:shadow-lg hover:shadow-[#22d3ee]/35"
-                >
-                  Finish setup
-                  <CheckCircle2 className="h-4 w-4" />
-                </button>
-              )}
-            </div>
-          </div>
-        </form>
+        <CreateForm
+          setActiveStep={setActiveStep}
+          activeStep={activeStep}
+          steps={steps}
+        />
       </div>
     </div>
   );
