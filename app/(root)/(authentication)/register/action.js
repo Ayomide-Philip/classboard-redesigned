@@ -1,4 +1,4 @@
-import { BASE_URL } from "@/libs/config";
+import { NEXT_PUBLIC_API_URL } from "@/libs/config";
 import { toast } from "react-toastify";
 
 export default async function RegisterAction(formData) {
@@ -45,7 +45,7 @@ export default async function RegisterAction(formData) {
     return toast.error("Passwords do not match");
 
   try {
-    const request = await fetch(`${BASE_URL}/api/auth/register`, {
+    const request = await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/register`, {
       method: "POST",
       body: JSON.stringify({
         name,

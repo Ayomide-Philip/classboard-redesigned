@@ -5,5 +5,5 @@ export const {
   NEXT_PUBLIC_VAPID_PUBLIC_KEY,
   AUTH_SECRET,
   __NEXT_PRIVATE_ORIGIN,
-  BASE_URL,
+  NEXT_PUBLIC_API_URL,
 } = process.env;
