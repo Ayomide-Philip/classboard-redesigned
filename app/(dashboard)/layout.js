@@ -11,7 +11,7 @@ export default async function Layout({ children }) {
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">
       <div className="flex flex-col lg:flex-row">
         <DesktopSidebar />
-        <MobileNavigation />
+        <MobileNavigation session={session} />
 
         <section className="flex flex-col space-y-6 w-full">
           <header className="hidden md:block border border-slate-200 bg-white px-6 py-5 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/75 dark:shadow-2xl dark:shadow-slate-950/40">

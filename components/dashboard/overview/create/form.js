@@ -10,7 +10,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
     description: "",
     boardType: "",
     joinMode: "code",
-    seatLimit: "",
+    seatLimit: 0,
     brandColor: "#22d3ee",
     allowComments: true,
   });
@@ -19,19 +19,8 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
   const isLastStep = activeStep === steps.length - 1;
 
   const handleFieldChange = (field, value) => {
+    console.log(field, value);
     setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleToggleModule = (module) => {
-    setFormData((prev) => {
-      const exists = prev.modules.includes(module);
-      return {
-        ...prev,
-        modules: exists
-          ? prev.modules.filter((item) => item !== module)
-          : [...prev.modules, module],
-      };
-    });
   };
 
   const goNext = () => {
@@ -48,11 +37,17 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
       onSubmit={(event) => event.preventDefault()}
     >
       {activeStep === 0 && (
-        <CreateStepOne handleFieldChange={handleFieldChange} />
+        <CreateStepOne
+          handleFieldChange={handleFieldChange}
+          formData={formData}
+        />
       )}
 
       {activeStep === 1 && (
-        <CreateStepTwo handleFieldChange={handleFieldChange} />
+        <CreateStepTwo
+          handleFieldChange={handleFieldChange}
+          formData={formData}
+        />
       )}
 
       {activeStep === 2 && <LastStep formData={formData} />}
