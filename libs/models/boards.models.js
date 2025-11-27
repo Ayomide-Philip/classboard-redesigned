@@ -81,6 +81,14 @@ const boardsSchema = new Schema(
       type: [Schema.Types.ObjectId],
       ref: "Users",
     },
+    message: {
+      type: [Schema.Types.ObjectId],
+      ref: "Messages",
+    },
+    calendar: {
+      type: [Schema.Types.ObjectId],
+      ref: "Calendars",
+    },
   },
   { timestamps: true }
 );
