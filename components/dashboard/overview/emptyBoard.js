@@ -35,56 +35,9 @@ export default function EmptyBoard() {
         <EmptyBoardHeader />
         <EmptyBoardCta />
 
-        <section className="grid gap-6 lg:grid-cols-2">
+        <section className="grid gap-6 lg:grid-cols-2 pb-10">
           <EmptyBoardJoin />
           <EmptyBoardCreate />
-        </section>
-
-        <section className="space-y-5 pb-10">
-          <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-slate-800 dark:text-white/90">
-              Suggested boards
-            </h2>
-            <Link
-              href="#"
-              className="text-sm font-semibold text-slate-600 transition hover:text-slate-800 dark:text-white/70 dark:hover:text-white"
-            >
-              View all
-            </Link>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {suggestedBoards.map((board) => (
-              <article
-                key={board.code}
-                className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 transition hover:border-slate-300 hover:bg-slate-100 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
-              >
-                <div
-                  className={`absolute inset-x-6 top-6 h-1 rounded-full bg-linear-to-r ${board.accent}`}
-                />
-                <div className="flex items-start justify-between pt-6">
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-semibold text-slate-800 dark:text-white/90">
-                      {board.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 dark:text-indigo-100/70">
-                      Focus: {board.focus}
-                    </p>
-                  </div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-white/70">
-                    <Users className="h-3.5 w-3.5" />
-                    {board.members}
-                  </span>
-                </div>
-                <p className="mt-4 text-sm text-slate-600 dark:text-white/70">
-                  Code: {board.code}
-                </p>
-                <button className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-600 transition hover:text-teal-500 dark:text-teal-200/80 dark:hover:text-teal-200">
-                  Preview board
-                  <Layers className="h-4 w-4" />
-                </button>
-              </article>
-            ))}
-          </div>
         </section>
       </div>
     </div>

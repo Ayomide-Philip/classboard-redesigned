@@ -24,7 +24,7 @@ export default function EmptyBoardCta() {
         </div>
         <div className="grid gap-3 md:w-64">
           <Link
-            href="#joinboard"
+            href="/overview/create"
             className="inline-flex h-12 items-center cursor-pointer justify-center gap-2 rounded-full bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1] px-6 text-sm font-semibold text-white shadow-md shadow-[#22d3ee]/10 transition hover:-translate-y-px hover:shadow-lg hover:shadow-[#22d3ee]/35 dark:text-slate-900"
           >
             <UserPlus className="h-4 w-4" />
