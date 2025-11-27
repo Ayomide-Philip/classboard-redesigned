@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-const BOARD_TYPES = [
+const boardTypes = [
   {
     id: "school",
     title: "School",
@@ -102,7 +102,7 @@ export default function CreateStepOne({ handleFieldChange, formData }) {
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">
-          {BOARD_TYPES.map((type) => {
+          {boardTypes.map((type) => {
             const isSelected = selectedBoardType === type.id;
 
             return (
