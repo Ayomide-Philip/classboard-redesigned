@@ -28,22 +28,21 @@ export default function CreateStepTwo({ formData, handleFieldChange }) {
           ))}
         </div>
         {formData.joinMode === "limited" && (
-  <div className="grid gap-2">
-    <label className="text-sm font-medium text-slate-700 dark:text-white/80">
-      Maximum seats (optional)
-    </label>
-    <input
-      type="number"
-      min={1}
-      placeholder="e.g., 30"
-      className="h-11 rounded-xl border border-slate-200 bg-white px-4 text-sm 
+          <div className="grid gap-2">
+            <label className="text-sm font-medium text-slate-700 dark:text-white/80">
+              Maximum seats (optional)
+            </label>
+            <input
+              type="number"
+              min={1}
+              placeholder="e.g., 30"
+              className="h-11 rounded-xl border border-slate-200 bg-white px-4 text-sm 
                  dark:border-white/15 dark:bg-slate-900/50 dark:text-white"
-      onChange={(e) => handleFieldChange("seatLimit", e.target.value)}
-      value={formData.seatLimit || ""}
-    />
-  </div>
-)}
-
+              onChange={(e) => handleFieldChange("seatLimit", e.target.value)}
+              value={formData.seatLimit || ""}
+            />
+          </div>
+        )}
       </div>
 
       <div className="grid gap-3 md:grid-cols-2">
@@ -51,8 +50,23 @@ export default function CreateStepTwo({ formData, handleFieldChange }) {
           <input
             type="checkbox"
             className="h-4 w-4 rounded border-slate-300 text-[#22d3ee] focus:ring-0 dark:border-white/30 dark:bg-transparent"
+            checked={formData.allowComments}
+            onChange={(e) =>
+              handleFieldChange("allowComments", e.target.checked)
+            }
           />
-          Allow learner comments on posts
+          Allow learner comments on annoucements
+        </label>
+        <label className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-100 dark:border-white/10 dark:bg-transparent dark:text-white/70 dark:hover:border-white/20 dark:hover:bg-white/5">
+          <input
+            type="checkbox"
+            checked={formData.allowAssignments}
+            onChange={(e) =>
+              handleFieldChange("allowAssignments", e.target.checked)
+            }
+            className="h-4 w-4 rounded border-slate-300 text-[#22d3ee] focus:ring-0 dark:border-white/30 dark:bg-transparent"
+          />
+          Allow learner to add assignments
         </label>
       </div>
     </div>

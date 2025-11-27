@@ -13,6 +13,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
     seatLimit: 0,
     brandColor: "#22d3ee",
     allowComments: true,
+    allowAssignments: false,
   });
 
   const isFirstStep = activeStep === 0;
