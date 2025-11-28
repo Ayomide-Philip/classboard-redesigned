@@ -51,7 +51,7 @@ export async function POST(req) {
       }
     );
   }
-  
+
   if (description.trim().length < 10) {
     return NextResponse.json(
       { error: "Description should be at least 10 characters" },
@@ -242,5 +242,15 @@ export async function POST(req) {
     );
   }
 
-  return NextResponse.json({ message: "POST a new board" });
+  try {
+    return NextResponse.json({ message: "POST a new board" });
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      { error: "An error was encountered while creating a new board" },
+      {
+        status: 404,
+      }
+    );
+  }
 }
