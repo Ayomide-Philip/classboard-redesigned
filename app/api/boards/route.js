@@ -258,6 +258,13 @@ export async function POST(req) {
         }
       );
     }
+    // if a board already has this code already
+    let joinCode = await generateJoinCode(school?.shortName);
+    const joinCodeExist = await Boards.findOne({ joinCode });
+    while (joinCodeExist) {
+      joinCode = await generateJoinCode(school?.shortName);
+    }
+
     // creating a new board for the user
     const board = await Boards.create({
       userId,
@@ -276,18 +283,17 @@ export async function POST(req) {
       allowComments: allowComments,
       allowPosts: allowPosts,
       students: [userId],
-      joinCode: await generateJoinCode(school?.shortName),
+      joinCode,
     });
     // updating the user profile by adding the board to it
     const user = await Users.findOne({ _id: userId }).select(
       "-password -email"
     );
 
-    user.board.push({
+    user.board = {
       boardId: board._id,
       role: "owner",
-    });
-
+    };
     await user.save();
 
     return NextResponse.json({ board, user });

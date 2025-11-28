@@ -24,20 +24,17 @@ const userSchema = new Schema(
       trim: true,
     },
     board: {
-      type: [
-        {
-          boardId: {
-            type: Schema.Types.ObjectId,
-            ref: "Boards",
-          },
-          role: {
-            type: String,
-            enum: ["owner", "admin", "member"],
-            default: "member",
-          },
+      type: {
+        boardId: {
+          type: Schema.Types.ObjectId,
+          ref: "Boards",
         },
-      ],
-      default: [],
+        role: {
+          type: String,
+          enum: ["owner", "admin", "member"],
+          default: "member",
+        },
+      },
     },
   },
   { timestamps: true }
