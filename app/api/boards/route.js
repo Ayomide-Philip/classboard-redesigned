@@ -32,5 +32,95 @@ export async function POST(req) {
       }
     );
 
+  if (!description || !description.trim())
+    return NextResponse.json(
+      { error: "Board Description is required" },
+      {
+        status: 404,
+      }
+    );
+
+  if (description.trim().length < 10)
+    return NextResponse.json(
+      { error: "Description should be at least 10 characters" },
+      {
+        status: 404,
+      }
+    );
+
+  if (!boardType || !boardType.trim())
+    return NextResponse.json(
+      { error: "BoardType is required" },
+      {
+        status: 404,
+      }
+    );
+
+  if (
+    boardType.trim().toLowerCase() !== "school" &&
+    boardType.trim().toLowerCase() !== "projects" &&
+    boardType.trim().toLowerCase() !== "group" &&
+    boardType.trim().toLowerCase() !== "personal"
+  )
+    return NextResponse.json(
+      {
+        error:
+          "Board Type can be either school or projects or personal or group.",
+      },
+      {
+        status: 404,
+      }
+    );
+
+  if (boardType.trim().toLowerCase() === "school") {
+    if (!school?.name || !school?.name.trim())
+      return NextResponse.json(
+        { error: "School name is required" },
+        {
+          status: 404,
+        }
+      );
+
+    if (school?.name.trim().length < 10)
+      return NextResponse.json(
+        { error: "School name should be at least 10 characters" },
+        {
+          status: 404,
+        }
+      );
+
+    if (!school?.logo || !school?.name.trim())
+      return NextResponse.json(
+        { error: "School Logo is required" },
+        {
+          status: 404,
+        }
+      );
+
+    if (school?.logo.length < 10)
+      return NextResponse.json(
+        { error: "School logo should be at least 10 characters" },
+        {
+          status: 404,
+        }
+      );
+
+    if (!school?.shortName || !school?.shortName.trim())
+      return NextResponse.json(
+        { error: "School ShortName is required" },
+        {
+          status: 404,
+        }
+      );
+
+    if (school?.shortName.trim().length < 2)
+      return NextResponse.json(
+        { error: "School ShortName should be at least 2 characters" },
+        {
+          status: 404,
+        }
+      );
+  }
+
   return NextResponse.json({ message: "POST a new board" });
 }
