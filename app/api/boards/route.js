@@ -16,52 +16,56 @@ export async function POST(req) {
   } = request;
   console.log(request);
 
-  if (!name || !name.trim())
+  if (!name || !name.trim()) {
     return NextResponse.json(
       { error: "Board Name is required" },
       {
         status: 404,
       }
     );
+  }
 
-  if (name.trim().length < 5)
+  if (name.trim().length < 5) {
     return NextResponse.json(
       { error: "Board Name should be at least 5 characters" },
       {
         status: 404,
       }
     );
+  }
 
-  if (!description || !description.trim())
+  if (!description || !description.trim()) {
     return NextResponse.json(
       { error: "Board Description is required" },
       {
         status: 404,
       }
     );
-
-  if (description.trim().length < 10)
+  }
+  if (description.trim().length < 10) {
     return NextResponse.json(
       { error: "Description should be at least 10 characters" },
       {
         status: 404,
       }
     );
+  }
 
-  if (!boardType || !boardType.trim())
+  if (!boardType || !boardType.trim()) {
     return NextResponse.json(
       { error: "BoardType is required" },
       {
         status: 404,
       }
     );
+  }
 
   if (
     boardType.trim().toLowerCase() !== "school" &&
     boardType.trim().toLowerCase() !== "projects" &&
     boardType.trim().toLowerCase() !== "group" &&
     boardType.trim().toLowerCase() !== "personal"
-  )
+  ) {
     return NextResponse.json(
       {
         error:
@@ -71,6 +75,7 @@ export async function POST(req) {
         status: 404,
       }
     );
+  }
 
   if (boardType.trim().toLowerCase() === "school") {
     if (!school?.name || !school?.name.trim())
@@ -140,13 +145,14 @@ export async function POST(req) {
       );
   }
 
-  if (!joinMode || !joinMode.trim())
+  if (!joinMode || !joinMode.trim()) {
     return NextResponse.json(
       { error: "Board Join mode is required" },
       {
         status: 404,
       }
     );
+  }
 
   if (
     joinMode.trim().toLowerCase() !== "code" &&
@@ -171,6 +177,20 @@ export async function POST(req) {
         }
       );
     }
+
+    if (typeof seatLimit !== "number") {
+      return NextResponse.json(
+        { error: "Seat limit should be a number" },
+        {
+          status: 404,
+        }
+      );
+    }
   }
+
+  if(!allowComments || !allowComments.trim()){
+      return 
+  }
+
   return NextResponse.json({ message: "POST a new board" });
 }
