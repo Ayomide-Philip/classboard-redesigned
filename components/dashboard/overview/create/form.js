@@ -60,10 +60,14 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
     return false;
   };
 
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   return (
     <form
       className="relative flex flex-1 flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-900/8 dark:border-white/10 dark:bg-white/5"
-      onSubmit={(event) => event.preventDefault()}
+      onSubmit={handleSubmit}
     >
       {activeStep === 0 && (
         <CreateStepOne
@@ -105,7 +109,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
             </button>
           ) : (
             <button
-              type="button"
+              type="submit"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1] px-8 text-sm font-semibold text-white shadow-md shadow-[#22d3ee]/10 transition hover:-translate-y-px hover:shadow-lg hover:shadow-[#22d3ee]/35"
             >
               Finish setup

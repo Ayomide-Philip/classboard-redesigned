@@ -8,5 +8,9 @@ export default async function generateJoinCode(shortName) {
     code += codeList[Math.floor(Math.random() * codeList.length)];
   }
 
+  if(!shortName) {
+      return code;
+  }
+
   return `${shortName}-${code}`;
 }

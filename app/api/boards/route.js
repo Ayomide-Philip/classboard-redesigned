@@ -6,7 +6,7 @@ import Users from "@/libs/models/user.models";
 
 export async function POST(req) {
   const request = await req.json();
-  const {
+  let {
     userId,
     name,
     tagline,
@@ -167,6 +167,13 @@ export async function POST(req) {
     }
   }
 
+  if (boardType.trim().toLowerCase() !== "school") {
+    school.name = null;
+    school.shortName = null;
+    school.logo = null;
+    school.country = null;
+  }
+
   if (!joinMode || !joinMode.trim()) {
     return NextResponse.json(
       { error: "Board Join mode is required" },
@@ -208,6 +215,10 @@ export async function POST(req) {
         }
       );
     }
+  }
+
+  if (joinMode.trim().toLowerCase() === "code" && seatLimit > 0) {
+    seatLimit = null;
   }
 
   if (allowComments === undefined) {
