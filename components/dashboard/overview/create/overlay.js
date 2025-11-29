@@ -76,7 +76,7 @@ export default function FormOverlay({ visible, code, onClose }) {
           <div className="flex items-center justify-center gap-4 sm:gap-6">
             {/* WhatsApp */}
             <a
-              href={`https://wa.me/?text=Join%20my%20classroom%20with%20code%3A%20${code}`}
+              href={`https://wa.me/?text=Join%20my%20classora%20classroom%20with%20code%3A%20${code}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-1 text-xs text-slate-500 transition hover:text-slate-700 dark:text-slate-400 dark:hover:text-white"
