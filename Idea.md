@@ -1,6 +1,11 @@
 ### Note Here
 
 ## Existing Feature 
+- **Authentication**: Login and Register flows implemented using NextAuth (`app/(root)/(authentication)`).
+- **Landing Page**: Complete UI components (`Hero`, `Features`, `CTA`, etc.) in `components/landing`.
+- **Dashboard Structure**: Basic dashboard layout and routing (`app/(dashboard)`).
+- **Database Models**: Mongoose schemas defined for `User` and `Boards` in `libs/models`.
+- **Basic API Routes**: Initial API endpoints for users and boards (`api/users`, `api/boards`).
 
 ## Pending Features
 - **Classes Page**: Full implementation including roster management, resources, and events.
