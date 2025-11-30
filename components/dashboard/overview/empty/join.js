@@ -1,5 +1,9 @@
+"use client";
 import { Users, UserPlus } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 export default function EmptyBoardJoin() {
+  const [code, setCode] = useState("");
   return (
     <div
       id="joinboard"
@@ -31,15 +35,18 @@ export default function EmptyBoardJoin() {
               type="text"
               placeholder="e.g. CLS-482"
               className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 font-medium tracking-[0.3em] uppercase text-slate-900 placeholder:text-slate-400 focus:border-[#22d3ee] focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 dark:border-white/15 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40 dark:focus:ring-[#22d3ee]/40"
+              onChange={(e) => {
+                setCode(e.target.value);
+              }}
             />
           </label>
-          <button
-            type="button"
+          <Link
+            href={{ pathname: "/overview/join", query: { code } }}
             className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1] px-6 text-sm font-semibold text-white shadow-md shadow-[#22d3ee]/10 transition hover:-translate-y-px hover:shadow-lg hover:shadow-[#22d3ee]/35 dark:text-slate-900"
           >
             <UserPlus className="h-4 w-4" />
             Join board
-          </button>
+          </Link>
         </form>
       </div>
     </div>
