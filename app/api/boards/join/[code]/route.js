@@ -50,6 +50,19 @@ export const POST = auth(async function POST(req, { params }) {
       );
     }
 
+    if (
+      board.joinMode === "limited" &&
+      board.seatLimit !== null &&
+      board.students.length >= board.seatLimit
+    ) {
+      return NextResponse.json(
+        { error: "Maximum number of seat has being reached" },
+        {
+          status: 400,
+        }
+      );
+    }
+
     // check if the user already exist in the board
     const userExist = board.students.find((user) => {
       return user.equals(userId);
@@ -88,6 +101,7 @@ export const POST = auth(async function POST(req, { params }) {
     );
   }
 });
+
 export async function GET(req, { params }) {
   const { code } = await params;
   if (!code) {
