@@ -65,7 +65,7 @@ export async function POST(req, { params }) {
     await user.save();
 
     return NextResponse.json(
-      { board, user, message:"Successfully Joined the board" },
+      { board, user, message: "Successfully Joined the board" },
       {
         status: 200,
       }
